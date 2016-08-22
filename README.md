@@ -14,7 +14,7 @@ You job is to refactor the code and make it readable, while keeping the code in 
 3. Run the tests.
 4. Start refactoring! 
 
-The primary goal is to refactor the code in `Finder.java` - as it stands the code is incomprehensible. 
+The primary goal is to refactor the code in `Tinder.java` - as it stands the code is incomprehensible. 
 
 # Tips
 

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import algorithm.Tinder;
 import org.junit.Before;
 import org.junit.Test;
 
-import algorithm.PairPeople;
-import algorithm.PersonOption;
-import algorithm.Finder;
+import algorithm.Match;
+import algorithm.MatchingPreference;
 import algorithm.Person;
 
 public class FinderTests {
@@ -35,9 +35,9 @@ public class FinderTests {
 	@Test
 	public void Returns_Empty_Results_When_Given_Empty_List() {
 		List<Person> list = new ArrayList<Person>();
-		Finder finder = new Finder(list);
+		Tinder tinder = new Tinder(list);
 
-		PairPeople result = finder.Find(PersonOption.One);
+		Match result = tinder.Find(MatchingPreference.closestPairPeople);
 		assertEquals(null, result.firstPerson);
 
 		assertEquals(null, result.secondPerson);
@@ -48,9 +48,9 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		list.add(sue);
 
-		Finder finder = new Finder(list);
+		Tinder tinder = new Tinder(list);
 
-		PairPeople result = finder.Find(PersonOption.One);
+		Match result = tinder.Find(MatchingPreference.closestPairPeople);
 
 		assertEquals(null, result.firstPerson);
 		assertEquals(null, result.secondPerson);
@@ -61,9 +61,9 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		list.add(sue);
 		list.add(greg);
-		Finder finder = new Finder(list);
+		Tinder tinder = new Tinder(list);
 
-		PairPeople result = finder.Find(PersonOption.One);
+		Match result = tinder.Find(MatchingPreference.closestPairPeople);
 
 		assertEquals(sue, result.firstPerson);
 		assertEquals(greg, result.secondPerson);
@@ -75,9 +75,9 @@ public class FinderTests {
 		list.add(mike);
 		list.add(greg);
 
-		Finder finder = new Finder(list);
+		Tinder tinder = new Tinder(list);
 
-		PairPeople result = finder.Find(PersonOption.Two);
+		Match result = tinder.Find(MatchingPreference.furthestPairPeople);
 
 		assertEquals(greg, result.firstPerson);
 		assertEquals(mike, result.secondPerson);
@@ -90,9 +90,9 @@ public class FinderTests {
 		list.add(sarah);
 		list.add(mike);
 		list.add(greg);
-		Finder finder = new Finder(list);
+		Tinder tinder = new Tinder(list);
 
-		PairPeople result = finder.Find(PersonOption.Two);
+		Match result = tinder.Find(MatchingPreference.furthestPairPeople);
 
 		assertEquals(sue, result.firstPerson);
 		assertEquals(sarah, result.secondPerson);
@@ -106,9 +106,9 @@ public class FinderTests {
 		list.add(mike);
 		list.add(greg);
 
-		Finder finder = new Finder(list);
+		Tinder tinder = new Tinder(list);
 
-		PairPeople result = finder.Find(PersonOption.One);
+		Match result = tinder.Find(MatchingPreference.closestPairPeople);
 
 		assertEquals(sue, result.firstPerson);
 		assertEquals(greg, result.secondPerson);
