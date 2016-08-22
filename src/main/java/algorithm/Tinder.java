@@ -43,19 +43,24 @@ public class Tinder {
 		List<Match> matchList = new ArrayList<Match>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
+			Person currentPerson = people.get(i);
 			for (int j = i + 1; j < people.size(); j++) {
 				Match match = new Match();
-				if (people.get(i).birthDate.getTime() < people.get(j).birthDate.getTime()) {
-					match.firstPerson = people.get(i);
-					match.secondPerson = people.get(j);
+				Person personToMatch = people.get(j);
+				if (currentPerson.isYoungerThan(personToMatch)) {
+					match.firstPerson = currentPerson;
+					match.secondPerson = personToMatch;
 				} else {
-					match.firstPerson = people.get(j);
-					match.secondPerson = people.get(i);
+					match.firstPerson = personToMatch;
+					match.secondPerson = currentPerson;
 				}
-				match.diffBirthDate = match.secondPerson.birthDate.getTime() - match.firstPerson.birthDate.getTime();
+
 				matchList.add(match);
 			}
 		}
+
+
+
 		return matchList;
 	}
 }

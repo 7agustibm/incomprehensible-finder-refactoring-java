@@ -18,5 +18,9 @@ public class Person {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
+
+	public boolean isYoungerThan(Person personOther){
+		return this.birthDate.getTime() < personOther.birthDate.getTime();
+	}
 }
 
