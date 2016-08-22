@@ -45,16 +45,8 @@ public class Tinder {
 		for (int i = 0; i < people.size() - 1; i++) {
 			Person currentPerson = people.get(i);
 			for (int j = i + 1; j < people.size(); j++) {
-				Match match = new Match();
 				Person personToMatch = people.get(j);
-				if (currentPerson.isYoungerThan(personToMatch)) {
-					match.firstPerson = currentPerson;
-					match.secondPerson = personToMatch;
-				} else {
-					match.firstPerson = personToMatch;
-					match.secondPerson = currentPerson;
-				}
-
+				Match match = Match.create(currentPerson, personToMatch);
 				matchList.add(match);
 			}
 		}
