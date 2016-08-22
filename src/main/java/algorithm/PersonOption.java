@@ -1,4 +1,4 @@
 package algorithm;
-public enum FT {
+public enum PersonOption {
 	One, Two
 }
